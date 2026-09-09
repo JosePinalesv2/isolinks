@@ -12,20 +12,21 @@
   :root{
     --bg:#0a0a0a;
     --bg-soft:#141114;
+    --brand-black:#211915;
     --card:#161014;
     --card-hover:#1f151a;
     --cream:#f7f5f4;
     --muted:#c9a3b1;
-    --rose:#e8829e;
-    --rose-light:#f4bccd;
-    --line:rgba(247,245,244,0.10);
+    --rose:#D795B7;
+    --rose-light:#E3B8D0;
+    --line:rgba(247,245,244,0.08);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:
-      radial-gradient(ellipse at 50% -10%, rgba(232,130,158,0.14), transparent 55%),
-      radial-gradient(ellipse at 50% 110%, rgba(244,188,205,0.09), transparent 55%),
+      radial-gradient(ellipse at 50% -10%, rgba(215,149,183,0.12), transparent 55%),
+      radial-gradient(ellipse at 50% 110%, rgba(227,184,208,0.06), transparent 55%),
       var(--bg);
     min-height:100vh;
     font-family:'Jost', sans-serif;
@@ -44,30 +45,45 @@
   }
   .avatar-wrap{
     position:relative;
-    width:112px;
-    height:112px;
+    width:116px;
+    height:116px;
     margin-bottom:22px;
   }
-  .avatar-ring{
-    position:absolute;
-    inset:-6px;
-    border-radius:50%;
-    border:1.5px solid rgba(232,130,158,0.55);
-    box-shadow:0 0 20px rgba(232,130,158,0.28);
-    background:conic-gradient(from 180deg, rgba(232,130,158,0.35), rgba(244,188,205,0.15), rgba(232,130,158,0.35));
-    animation:spin 12s linear infinite;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .avatar-ring{animation:none;}
-  }
-  @keyframes spin{to{transform:rotate(360deg);}}
   .avatar{
-    position:absolute;
-    inset:0;
+    width:100%;
+    height:100%;
     border-radius:50%;
-    background:#000000 url('logo-pink.jpg') center/84% no-repeat;
-    border:2px solid var(--rose);
-    box-shadow:0 0 14px rgba(232,130,158,0.2);
+    /* Fondo tipo cortina suave de estudio fotográfico con el tono cálido de marca (#211915) */
+    background: radial-gradient(circle at 50% 38%, #211915 0%, #171115 58%, #0b080a 100%);
+    /* Raya del círculo rosada sutil, nítida y sofisticada (sin destellos toscos) */
+    border: 1.5px solid rgba(215, 149, 183, 0.55);
+    box-shadow: 
+      0 12px 28px -6px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(215, 149, 183, 0.15),
+      inset 0 0 20px rgba(0, 0, 0, 0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .avatar:hover{
+    transform: scale(1.02);
+    border-color: rgba(215, 149, 183, 0.85);
+    box-shadow: 
+      0 14px 32px -4px rgba(0, 0, 0, 0.95),
+      0 0 14px rgba(215, 149, 183, 0.22),
+      inset 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+  .avatar-img{
+    width:82%;
+    height:82%;
+    object-fit:contain;
+    mix-blend-mode:screen;
+    filter:contrast(1.04);
+    display:block;
+    user-select:none;
+    pointer-events:none;
   }
   h1{
     font-family:'Cormorant Garamond', serif;
@@ -171,8 +187,9 @@
 <body>
   <main class="page">
     <div class="avatar-wrap">
-      <div class="avatar-ring"></div>
-      <div class="avatar" role="img" aria-label="Logo ISO Studio"></div>
+      <div class="avatar">
+        <img src="logo-pink.jpg" alt="Logo ISO Studio" class="avatar-img" />
+      </div>
     </div>
 
     <h1>Iso Studio</h1>
