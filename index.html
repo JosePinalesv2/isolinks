@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ISO Studio | Enlaces</title>
-<link rel="icon" type="image/png" href="isologotransparente.png">
+<link rel="icon" type="image/jpeg" href="logo-pink.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -44,17 +44,18 @@
   }
   .avatar-wrap{
     position:relative;
-    width:104px;
-    height:104px;
+    width:112px;
+    height:112px;
     margin-bottom:22px;
   }
   .avatar-ring{
     position:absolute;
-    inset:-4px;
+    inset:-6px;
     border-radius:50%;
-    background:conic-gradient(from 180deg, var(--rose), var(--rose-light), var(--rose));
-    opacity:0.6;
-    animation:spin 10s linear infinite;
+    border:1.5px solid rgba(232,130,158,0.55);
+    box-shadow:0 0 20px rgba(232,130,158,0.28);
+    background:conic-gradient(from 180deg, rgba(232,130,158,0.35), rgba(244,188,205,0.15), rgba(232,130,158,0.35));
+    animation:spin 12s linear infinite;
   }
   @media (prefers-reduced-motion: reduce){
     .avatar-ring{animation:none;}
@@ -64,8 +65,9 @@
     position:absolute;
     inset:0;
     border-radius:50%;
-    background:url('isologotransparente.png') center/70% no-repeat;
-    border:3px solid var(--bg);
+    background:#000000 url('logo-pink.jpg') center/84% no-repeat;
+    border:2px solid var(--rose);
+    box-shadow:0 0 14px rgba(232,130,158,0.2);
   }
   h1{
     font-family:'Cormorant Garamond', serif;
